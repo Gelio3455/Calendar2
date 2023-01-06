@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onClickNewActivity() {
-        val intent = Intent(this, WeeklyActivity::class.java)
+        val intent = Intent(this, SearchActivity::class.java)
         startActivity(intent)
     }
 
