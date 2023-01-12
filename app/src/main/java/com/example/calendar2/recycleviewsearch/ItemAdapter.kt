@@ -4,19 +4,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.calendar2.AppDatabase
+import com.example.calendar2.Lesson
 import com.example.calendar2.R
 import com.example.calendar2.databinding.ItemItemBinding
 
 class ItemAdapter : RecyclerView.Adapter<ItemAdapter.ItemHolder>() {
-
-    val itemList = ArrayList<ItemSearch>()
+    val itemList = ArrayList<Lesson>()
 
     class ItemHolder(item:View): RecyclerView.ViewHolder(item) {
         val binding = ItemItemBinding.bind(item)
 
 
-        fun bind(itemsearch:ItemSearch){
-            binding.itemText.text=itemsearch.title
+        fun bind(itemsearch:Lesson){
+            binding.itemText.text=itemsearch.groupName
 
         }
 
@@ -34,8 +35,13 @@ class ItemAdapter : RecyclerView.Adapter<ItemAdapter.ItemHolder>() {
     override fun getItemCount(): Int {
        return itemList.size
     }
-        fun  addItem(itemsearch:ItemSearch){
+        fun  addItem(itemsearch:Lesson){
             itemList.add(itemsearch)
             notifyDataSetChanged()
         }
+    fun  addItems(items:List<Lesson>){
+        itemList.clear()
+        itemList.addAll(items)
+        notifyDataSetChanged()
+    }
 }

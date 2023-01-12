@@ -13,6 +13,10 @@ interface  LessonDao {
     @Query("SELECT * FROM lesson_table WHERE day LIKE :day LIMIT 5 ")
      fun findByday(day: Int): Lesson
 
+
+     @Query("SELECT DISTINCT Group_name FROM lesson_table")
+    fun findallgroup(): List<Lesson>
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
      fun insert(lesson: Lesson)
 

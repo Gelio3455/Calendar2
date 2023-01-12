@@ -8,13 +8,14 @@
         <entry key="..\:/android projects/Calendar2/app/src/main/res/layout/activity_weekly.xml" value="0.33" />
         <entry key="..\:/android projects/Calendar2/app/src/main/res/layout/fragment_day.xml" value="0.36666666666666664" />
         <entry key="..\:/android projects/Calendar2/app/src/main/res/layout/fragment_fri.xml" value="0.24479166666666666" />
-        <entry key="..\:/android projects/Calendar2/app/src/main/res/layout/fragment_group.xml" value="0.22" />
+        <entry key="..\:/android projects/Calendar2/app/src/main/res/layout/fragment_group.xml" value="0.33" />
         <entry key="..\:/android projects/Calendar2/app/src/main/res/layout/fragment_mon.xml" value="0.67" />
         <entry key="..\:/android projects/Calendar2/app/src/main/res/layout/fragment_search.xml" value="0.36666666666666664" />
         <entry key="..\:/android projects/Calendar2/app/src/main/res/layout/fragment_teacher.xml" value="0.36666666666666664" />
         <entry key="..\:/android projects/Calendar2/app/src/main/res/layout/fragment_thu.xml" value="0.25885416666666666" />
         <entry key="..\:/android projects/Calendar2/app/src/main/res/layout/fragment_tue.xml" value="0.36666666666666664" />
-        <entry key="..\:/android projects/Calendar2/app/src/main/res/layout/item_item.xml" value="0.5" />
+        <entry key="..\:/android projects/Calendar2/app/src/main/res/layout/item_item.xml" value="0.22" />
+        <entry key="..\:/android projects/Calendar2/app/src/main/res/layout/lesson_item.xml" value="0.5" />
       </map>
     </option>
   </component>
