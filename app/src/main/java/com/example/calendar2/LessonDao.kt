@@ -15,7 +15,7 @@ interface  LessonDao {
 
 
      @Query("SELECT DISTINCT Group_name FROM lesson_table")
-    fun findallgroup(): List<Lesson>
+    suspend fun findallgroup(): List<Lesson>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
      fun insert(lesson: Lesson)

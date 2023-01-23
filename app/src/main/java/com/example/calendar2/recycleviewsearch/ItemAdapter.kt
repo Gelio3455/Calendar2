@@ -14,8 +14,6 @@ class ItemAdapter : RecyclerView.Adapter<ItemAdapter.ItemHolder>() {
 
     class ItemHolder(item:View): RecyclerView.ViewHolder(item) {
         val binding = ItemItemBinding.bind(item)
-
-
         fun bind(itemsearch:Lesson){
             binding.itemText.text=itemsearch.groupName
 

@@ -10,4 +10,10 @@ data class Lesson (
     @ColumnInfo(name = "lesson_name") val lessonName: String?,
     @ColumnInfo(name = "Group_name") val groupName: String?,
     @ColumnInfo(name = "day") val day: Int?
-)
+//    ,
+//    @ColumnInfo(name = "time") val time: String?,
+//    @ColumnInfo(name = "roomles") val roomles: String?,
+//    @ColumnInfo(name = "typeOfWeek") val typeOfWeek: String?
+
+
+    )
