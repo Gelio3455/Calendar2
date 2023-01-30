@@ -1,31 +1,26 @@
 package com.example.calendar2.fragments
 
-import android.content.ClipData
+import android.content.Intent
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.calendar2.AppDatabase
-import com.example.calendar2.R
+import com.example.calendar2.Lesson
+import com.example.calendar2.WeeklyActivity
 import com.example.calendar2.databinding.FragmentGroupBinding
 import com.example.calendar2.recycleviewsearch.ItemAdapter
-import com.example.calendar2.recycleviewsearch.ItemSearch
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 private var gridLayoutManager: GridLayoutManager? = null
 
 
-class GroupFragment : Fragment() {
+class GroupFragment : Fragment(),ItemAdapter.Listener {
     lateinit var appDb : AppDatabase
     lateinit var binding: FragmentGroupBinding
-    private val adapter=ItemAdapter()
-    private var index = 0
+    private val adapter=ItemAdapter(this)
 
 
        override fun onCreateView(
@@ -43,20 +38,25 @@ class GroupFragment : Fragment() {
 
     private fun init(){
         val apply = binding.apply {
-
-            gridLayoutManager =
-                GridLayoutManager(requireContext(), 2, LinearLayoutManager.VERTICAL, false)
+            gridLayoutManager = GridLayoutManager(requireContext(), 2, LinearLayoutManager.VERTICAL, false)
             rcView.layoutManager = gridLayoutManager
             rcView.adapter = adapter
-
         }
 //        lifecycleScope.launch(Dispatchers.IO) {
 //        GlobalScope.launch { adapter.addItems(appDb.lessonDao().getAll())}
-            lifecycleScope.launch { adapter.addItems(appDb.lessonDao().findallgroup()) }
-
-
+            lifecycleScope.launch {
+                adapter.addItems(appDb.lessonDao().findallgroup())
+            }
 
     }
+    override fun onClick(items: Lesson) {
+
+            startActivity(Intent(context, WeeklyActivity::class.java ).apply{
+                putExtra("itemGR",items.groupName)
+            })
+
+    }
+
 
     companion object {
 
@@ -66,4 +66,6 @@ class GroupFragment : Fragment() {
 
 
             }
-    }
+
+
+}

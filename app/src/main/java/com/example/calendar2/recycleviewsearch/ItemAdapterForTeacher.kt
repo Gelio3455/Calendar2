@@ -7,15 +7,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.calendar2.Lesson
 import com.example.calendar2.R
 import com.example.calendar2.databinding.ItemItemBinding
-import com.example.calendar2.fragments.GroupFragment
 
-class ItemAdapter(val listener: GroupFragment) : RecyclerView.Adapter<ItemAdapter.ItemHolder>() {
+class ItemAdapterForTeacher(val listener: Listener) : RecyclerView.Adapter<ItemAdapterForTeacher.ItemHolder>() {
     val itemList = ArrayList<Lesson>()
 
     class ItemHolder(item:View): RecyclerView.ViewHolder(item) {
         val binding = ItemItemBinding.bind(item)
         fun bind(itemsearch:Lesson, listener: Listener){
-            binding.itemText.text=itemsearch.groupName
+            binding.itemText.text=itemsearch.teachname
 
             itemView.setOnClickListener{
                 listener.onClick(itemsearch)

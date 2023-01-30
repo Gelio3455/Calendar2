@@ -57,10 +57,19 @@ class MainActivity : AppCompatActivity() {
         val lessonName = binding.etFirstName.text.toString()
         val groupName = binding.etLastName.text.toString()
         val day = binding.etRollNo.text.toString()
+        val teachname = binding.teachname.text.toString()
+        val time = binding.time.text.toString()
+        val roomles = binding.roomles.text.toString()
+        val typeOfWeek = binding.typeOfWeek.text.toString()
 
-        if(lessonName.isNotEmpty() && groupName.isNotEmpty() && day.isNotEmpty()     ) {
+        if(
+            lessonName.isNotEmpty() && groupName.isNotEmpty() && day.isNotEmpty()
+            && teachname.isNotEmpty()   && time.isNotEmpty()   && roomles.isNotEmpty()
+            && typeOfWeek.isNotEmpty()
+        )
+        {
             val lesson = Lesson(
-                null, lessonName, groupName, day.toInt()
+                null, lessonName, groupName, day.toInt(), teachname, time, roomles, typeOfWeek.toInt()
             )
             GlobalScope.launch(Dispatchers.IO) {
 
@@ -70,6 +79,10 @@ class MainActivity : AppCompatActivity() {
             binding.etFirstName.text.clear()
             binding.etLastName.text.clear()
             binding.etRollNo.text.clear()
+            binding.teachname.text.clear()
+            binding.time.text.clear()
+            binding.roomles.text.clear()
+            binding.typeOfWeek.text.clear()
 
             Toast.makeText(this@MainActivity,"Successfully written",Toast.LENGTH_SHORT).show()
         }else Toast.makeText(this@MainActivity,"PLease Enter Data",Toast.LENGTH_SHORT).show()
