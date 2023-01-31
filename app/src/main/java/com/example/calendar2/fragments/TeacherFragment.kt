@@ -1,6 +1,5 @@
 package com.example.calendar2.fragments
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,9 +11,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.calendar2.AppDatabase
 import com.example.calendar2.Lesson
-import com.example.calendar2.R
-import com.example.calendar2.WeeklyActivity
-import com.example.calendar2.databinding.FragmentGroupBinding
 import com.example.calendar2.databinding.FragmentTeacherBinding
 import com.example.calendar2.recycleviewsearch.ItemAdapterForTeacher
 import kotlinx.coroutines.launch

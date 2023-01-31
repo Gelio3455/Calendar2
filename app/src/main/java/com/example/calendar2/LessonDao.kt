@@ -18,11 +18,11 @@ interface  LessonDao {
     @Query("SELECT DISTINCT Teacher_Name FROM lesson_table")
     suspend fun findallteacher(): List<Lesson>
 
-    @Query("SELECT * FROM lesson_table WHERE Group_name LIKE :a and day LIKE :b and typeOfWeek LIKE :c LIMIT 10 ")
-    suspend fun findBygrop(a: String, b:String, c: String):  List<Lesson>
+    @Query("SELECT * FROM lesson_table WHERE Group_name LIKE :a and day LIKE :b and typeOfWeek LIKE :c  ")
+    suspend fun findBygrop(a: String?, b: Int?, c: Int?):  List<Lesson>
 
-    @Query("SELECT * FROM lesson_table WHERE Teacher_Name LIKE :a and day LIKE :b and typeOfWeek LIKE :c LIMIT 10 ")
-    suspend fun findByTeacher(a: String, b:String, c:Int): List<Lesson>
+    @Query("SELECT * FROM lesson_table WHERE Teacher_Name LIKE :a and day LIKE :b and typeOfWeek LIKE :c  ")
+    suspend fun findByTeacher(a: String?, b: Int?, c:Int?): List<Lesson>
 
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

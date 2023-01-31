@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.calendar2.AppDatabase
 import com.example.calendar2.Lesson
-import com.example.calendar2.WeeklyActivity
 import com.example.calendar2.databinding.FragmentGroupBinding
 import com.example.calendar2.recycleviewsearch.ItemAdapter
 import kotlinx.coroutines.launch

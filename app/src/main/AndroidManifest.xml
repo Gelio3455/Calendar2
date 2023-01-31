@@ -17,7 +17,7 @@
             android:name=".SearchActivity"
             android:exported="false" />
         <activity
-            android:name=".WeeklyActivity"
+            android:name=".fragments.WeeklyActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

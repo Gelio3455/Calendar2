@@ -1,12 +1,12 @@
-package com.example.calendar2
+package com.example.calendar2.fragments
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
+import com.example.calendar2.AppDatabase
+import com.example.calendar2.R
 import com.example.calendar2.databinding.ActivityWeeklyBinding
-import com.example.calendar2.fragments.*
 
 class WeeklyActivity : AppCompatActivity() {
     lateinit var binding : ActivityWeeklyBinding
@@ -23,8 +23,9 @@ class WeeklyActivity : AppCompatActivity() {
 // Передача данных
        var     GRName  = intent.getStringExtra("itemGR") ?: "lol"
        var     TCName  = intent.getStringExtra("itemTC") ?: "lol"
-        if (GRName !== null) Toast. makeText(this@WeeklyActivity, "вы передали группу${GRName}", Toast.LENGTH_SHORT).show()
-        if (TCName !== null) Toast. makeText(this@WeeklyActivity, "вы передали Преподавателя ${TCName}", Toast.LENGTH_SHORT).show()
+//        if (GRName !== null) Toast. makeText(this@WeeklyActivity, "вы передали группу${GRName}", Toast.LENGTH_SHORT).show()
+//        if (TCName !== null) Toast. makeText(this@WeeklyActivity, "вы передали Преподавателя ${TCName}", Toast.LENGTH_SHORT).show()
+
 // ТИП НЕДЕЛИ
         val statusview = findViewById<TextView>(R.id.weektype)
         val chet = "Четная"
@@ -41,12 +42,12 @@ class WeeklyActivity : AppCompatActivity() {
 
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.frag_holder, DayFragment.newInstance(1,GRName,TCName,statusINT))
+            .replace(R.id.frag_holder, DayFragment.newInstance(1,GRName,TCName, statusINT))
             .commit()
         binding.mon.setOnClickListener {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.frag_holder, DayFragment.newInstance(1,GRName,TCName,statusINT))
+                .replace(R.id.frag_holder, DayFragment.newInstance(1,GRName,TCName, statusINT))
                 .commit()
         }
 

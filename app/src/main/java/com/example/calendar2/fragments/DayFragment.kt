@@ -1,24 +1,20 @@
 package com.example.calendar2.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.calendar2.AppDatabase
-import com.example.calendar2.Lesson
 import com.example.calendar2.databinding.FragmentDayBinding
 import com.example.calendar2.lessonrcview.LessonRCAdapter
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 private var gridLayoutManager: GridLayoutManager? = null
 
@@ -38,18 +34,31 @@ class DayFragment : Fragment() {
         appDb = AppDatabase.getDatabase(requireActivity())
         binding=FragmentDayBinding.inflate(layoutInflater)
 
-//        init()
+        val x= 5
+        var Day: Int? = 1
+        var GRName: String? = null
+        var TCName: String? = null
+        var TypeOfWeek: Int? = 1
+
+
+        arguments?.getInt(DAY_OF_WEEK)?.let { Day = it }
+        arguments?.getString(GROUP_NAME)?.let { GRName = it }
+        arguments?.getString(TEACHER_NAME)?.let { TCName = it }
+        arguments?.getInt(TYPE_OF_WEEK)?.let { TypeOfWeek = it }
+
+
+        Toast. makeText(context, "вы передали группу: ${GRName}", Toast.LENGTH_SHORT).show()
+        init(GRName,Day,TypeOfWeek)
+
+
+
 
 //        arguments?.getInt(DAY_OF_WEEK)?.let { readData(it) }
         return  binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        init()
-    }
 
-    private fun init(){
+    private fun init(GName:String?, Dday: Int?, TypeWeek:Int?){
         val apply = binding.apply {
             gridLayoutManager = GridLayoutManager(requireContext(), 1, LinearLayoutManager.VERTICAL, false)
             rcView.layoutManager = gridLayoutManager
@@ -57,36 +66,13 @@ class DayFragment : Fragment() {
         }
 
         lifecycleScope.launch {
-            adapter.addItems(appDb.lessonDao().getAll())
-//            adapter.addItems(appDb.lessonDao().findBygrop(GROUP_NAME,DAY_OF_WEEK, TYPE_OF_WEEK))
+
+            adapter.addItems(appDb.lessonDao().findBygrop(GName,Dday, TypeWeek))
         }
 
     }
 
-//    fun readData(dayofweek: Int){
-//
-//        lateinit var lesson: Lesson
-//
-//        GlobalScope.launch {
-//
-//            lesson = appDb.lessonDao().findByday(dayofweek)
-//            Log.d("Robin Data",lesson.toString())
-//            displayData(lesson)
-//
-//        }
-//    }
-//
-//    private suspend fun displayData(lesson: Lesson){
-//
-//        withContext(Dispatchers.Main){
-//
-//            binding.tvFirstName.text = lesson.lessonName
-//            binding.tvLastName.text = lesson.groupName
-//            binding.tvRollNo.text = lesson.day.toString()
-//
-//        }
-//
-//    }
+
 
     companion object {
         const val DAY_OF_WEEK = "Day_of_week"
