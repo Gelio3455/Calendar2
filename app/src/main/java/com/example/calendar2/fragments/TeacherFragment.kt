@@ -55,7 +55,7 @@ class TeacherFragment : Fragment(),ItemAdapterForTeacher.Listener {
 
     override fun onClick(items: Lesson) {
 
-        startActivity(Intent(context, WeeklyActivity::class.java ).apply{
+        startActivity(Intent(context, WeeklyActivityTeacher::class.java ).apply{
             putExtra("itemTC",items.teachname)
         })
 

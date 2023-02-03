@@ -8,7 +8,7 @@ import com.example.calendar2.AppDatabase
 import com.example.calendar2.R
 import com.example.calendar2.databinding.ActivityWeeklyBinding
 
-class WeeklyActivity : AppCompatActivity() {
+class WeeklyActivityTeacher : AppCompatActivity() {
     lateinit var binding : ActivityWeeklyBinding
     private lateinit var appDb : AppDatabase
 
@@ -23,8 +23,7 @@ class WeeklyActivity : AppCompatActivity() {
 // Передача данных
        var     GRName  = intent.getStringExtra("itemGR") ?: "lol"
        var     TCName  = intent.getStringExtra("itemTC") ?: "lol"
-//        if (GRName !== null) Toast. makeText(this@WeeklyActivity, "вы передали группу${GRName}", Toast.LENGTH_SHORT).show()
-//        if (TCName !== null) Toast. makeText(this@WeeklyActivity, "вы передали Преподавателя ${TCName}", Toast.LENGTH_SHORT).show()
+
 
 // ТИП НЕДЕЛИ
         val statusview = findViewById<TextView>(R.id.weektype)
