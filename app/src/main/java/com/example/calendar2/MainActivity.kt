@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.calendar2.databinding.ActivityMainBinding
+import com.example.calendar2.todo.TimeTableMain
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -42,6 +43,9 @@ class MainActivity : AppCompatActivity() {
         binding.buttonnew.setOnClickListener{
            onClickNewActivity()
         }
+        binding.buttontodo.setOnClickListener{
+            onClickNewActivity1()
+        }
 
     }
 
@@ -49,7 +53,10 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, SearchActivity::class.java)
         startActivity(intent)
     }
-
+    private fun onClickNewActivity1() {
+        val intent = Intent(this, TimeTableMain::class.java)
+        startActivity(intent)
+    }
 
 
     private fun writeData(){

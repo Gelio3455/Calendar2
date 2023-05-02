@@ -17,13 +17,27 @@
             android:name=".SearchActivity"
             android:exported="false" />
         <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+        android:name=".todo.UpdateCard"
+        android:exported="false" />
+       <activity
+        android:name=".todo.CreateCard"
+        android:exported="false" />
+        <activity
+            android:name=".todo.TimeTableMain"
+            android:exported="false" />
+
+        <activity
             android:name=".fragments.WeeklyActivity"
             android:exported="false" />
         <activity
             android:name=".fragments.WeeklyActivityTeacher"
             android:exported="false" />
+
         <activity
-            android:name=".MainActivity"
+            android:name=".todo.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

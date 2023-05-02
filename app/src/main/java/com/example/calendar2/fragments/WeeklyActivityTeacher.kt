@@ -47,12 +47,12 @@ class WeeklyActivityTeacher : AppCompatActivity() {
 
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.frag_holder, DayFragment.newInstance(1,GRName,TCName, statusINT))
+            .replace(R.id.frag_holder, DayFragmentTeacher.newInstance(1,GRName,TCName, statusINT))
             .commit()
         binding.mon.setOnClickListener {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.frag_holder, DayFragment.newInstance(1,GRName,TCName, statusINT))
+                .replace(R.id.frag_holder, DayFragmentTeacher.newInstance(1,GRName,TCName, statusINT))
                 .commit()
         }
 
@@ -60,7 +60,7 @@ class WeeklyActivityTeacher : AppCompatActivity() {
         binding.tue.setOnClickListener {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.frag_holder, DayFragment.newInstance(2,GRName,TCName,statusINT))
+                .replace(R.id.frag_holder, DayFragmentTeacher.newInstance(2,GRName,TCName,statusINT))
                 .commit()
         }
 
@@ -68,7 +68,7 @@ class WeeklyActivityTeacher : AppCompatActivity() {
         binding.wen.setOnClickListener {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.frag_holder, DayFragment.newInstance(3,GRName,TCName,statusINT))
+                .replace(R.id.frag_holder, DayFragmentTeacher.newInstance(3,GRName,TCName,statusINT))
                 .commit()
         }
 
@@ -76,14 +76,14 @@ class WeeklyActivityTeacher : AppCompatActivity() {
         binding.thes.setOnClickListener {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.frag_holder, DayFragment.newInstance(4,GRName,TCName,statusINT))
+                .replace(R.id.frag_holder, DayFragmentTeacher.newInstance(4,GRName,TCName,statusINT))
                 .commit()
         }
 //  Подключение фрагмента это Пятница
         binding.fri.setOnClickListener {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.frag_holder, DayFragment.newInstance(5,GRName,TCName,statusINT))
+                .replace(R.id.frag_holder, DayFragmentTeacher.newInstance(5,GRName,TCName,statusINT))
                 .commit()
         }
 

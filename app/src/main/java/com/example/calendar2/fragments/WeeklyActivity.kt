@@ -23,15 +23,14 @@ class WeeklyActivity : AppCompatActivity() {
 // Передача данных
        var     GRName  = intent.getStringExtra("itemGR") ?: "lol"
        var     TCName  = intent.getStringExtra("itemTC") ?: "lol"
-//        if (GRName !== null) Toast. makeText(this@WeeklyActivity, "вы передали группу${GRName}", Toast.LENGTH_SHORT).show()
-//        if (TCName !== null) Toast. makeText(this@WeeklyActivity, "вы передали Преподавателя ${TCName}", Toast.LENGTH_SHORT).show()
+
 
 // ТИП НЕДЕЛИ
         val statusview = findViewById<TextView>(R.id.weektype)
         val chet = "Четная"
         statusview.text= chet
 
-// Передача типа недели, где 1 нечетная 2 четная, 0 дефотное значение
+// Передача типа недели, где 1 нечетная 2 четная
 
         var statusINT = 2
         binding.swaptwo.setOnClickListener{

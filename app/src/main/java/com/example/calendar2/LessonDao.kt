@@ -1,6 +1,7 @@
 package com.example.calendar2
 
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface  LessonDao {
@@ -18,12 +19,16 @@ interface  LessonDao {
     @Query("SELECT DISTINCT Teacher_Name FROM lesson_table")
     suspend fun findallteacher(): List<Lesson>
 
-    @Query("SELECT * FROM lesson_table WHERE Group_name LIKE :a and day LIKE :b and typeOfWeek LIKE :c  ")
+    @Query("SELECT * FROM lesson_table WHERE Group_name LIKE :a and day LIKE :b and typeOfWeek LIKE :c  or typeOfWeek = 12 ")
     suspend fun findBygrop(a: String?, b: Int?, c: Int?):  List<Lesson>
 
-    @Query("SELECT * FROM lesson_table WHERE Teacher_Name LIKE :a and day LIKE :b and typeOfWeek LIKE :c  ")
+    @Query("SELECT * FROM lesson_table WHERE Teacher_Name LIKE :a and day LIKE :b and typeOfWeek LIKE :c  or typeOfWeek = 12   ")
     suspend fun findByTeacher(a: String?, b: Int?, c:Int?): List<Lesson>
 
+//    @Query("SELECT * FROM lesson_table WHERE Group_name LIKE :searchQuery ")
+//    suspend fun searchgroup(searchQuery: String): Flow<List<Lesson>>
+//    @Query("SELECT * FROM lesson_table WHERE Teacher_Name LIKE :searchQuery ")
+//    suspend fun searchteacher(searchQuery: String): Flow<List<Lesson>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(lesson: Lesson)

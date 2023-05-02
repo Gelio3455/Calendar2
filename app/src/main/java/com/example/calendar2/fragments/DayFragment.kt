@@ -57,7 +57,7 @@ class DayFragment : Fragment() {
 
 
 
-        Toast. makeText(context, "вы передали type ${TypeOfWeek}", Toast.LENGTH_SHORT).show()
+//        Toast. makeText(context, " type ${TypeOfWeek}", Toast.LENGTH_SHORT).show()
         init(GRName,Day,TypeOfWeek)
 
 
